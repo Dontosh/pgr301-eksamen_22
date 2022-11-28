@@ -8,7 +8,14 @@ Utfordringene med dagens systemutviklingsprosess er mange. Et eksempel er at mar
 
 Et annet eksempel er at tradisjonelt sett jobbet noen i "Dev"-delen, altså som utviklere. Og når man var ferdig med å lage et system, så lempet man det over på "Ops"-folkene, altså "operations"-og tok ferie eller gikk over på et annet prosjekt. Problemet her er at det er utrolig lite effektivt. Hvordan kan noen hos "Ops" vite hvorfor visse valg i koden er tatt, når de ikke har skrevet det selv? Hvis noe går galt, så må de ta kontakt med utviklerne, som ikke alltid er tilgjengelige. Det er her flaskehalsen kommer inn i bildet. Så ved å bruke DevOps-metoden, har man som utvikler også ansvar for vedlikehold av koden. Man er både "dev" og "ops" - derav DevOps. I tillegg kan DevOps sammen med skyteknologi gjøre prosessen fra ide til ferdig feature ute på nettet betraktelig mye raskere. Bedrifter har erfart å gå fra omtrent 1-2 prod-pusher hver 3. eller 6. måned, til flere hundre om dagen. 
 
+Et eksempel på et DevOps-prinsipp som ofte blir brutt, er CD (Continuous Deployment). Noen bedrifter jobber gjerne i et såkalt "trunk based development" miljø, hvor man oppretter "feature branches" som alltid "merges" rett inn i Main og ut i produksjon. Problemet her er at folk ofte jobber lenge i en "feature branch", og når de omsider bestemmer seg for å opprette en "pull request" og "merge" denne med Main, så ligger den ørtenhundre "commits" bak Main. Da har man brutt hele prinsippiet med å kontinuerlig "merge" inn i Main og ut i produksjon, og må heller bruke mye unødvendig tid på "merge conflicts". 
 
+Et annet eksempel på et DevOps-prinsipp som ofte blir brutt er: SKRIV MER HER!!!!!!!!!!!!!!!!
+
+### Spørsmål:
+* En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
+### Svar:
+En bedre tilnærming kan - og burde i mine øyne - være at da må man i hvert fall release ny funksjonalitet, om ikke oftere. Man bør ikke være redd for at det kan gå galt, men heller se på det som en mulighet for å ta lærdom om hvorfor det gikk galt. Det er bedre å oppdage feilen tidligere og hyppigere, enn større og mer komplekse feil "down the line"
 
 
 SLETT ALT UNDER ETTERPÅ!!
