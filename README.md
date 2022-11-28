@@ -1,4 +1,4 @@
-# PG301_eksamen test
+# PG301_eksamen test2
 
 ## Del 1 - DevOps prinsipper
 ### Spørsmål:
