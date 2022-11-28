@@ -5,6 +5,8 @@
 * Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
 ### Svar:
 Utfordringene med dagens systemutviklingsprosess er mange. Et eksempel er at markedet krever mer enn noen gang. Kunder krever hastighet og forbedringer hele tiden, og det har tradisjonelt sett vært vanskelig å imøtekomme. Det er her DevOps er revolusjonerende. Et annet eksempel er at tradisjonelt sett jobbet noen i "Dev"-delen, altså som utviklere. Og når man var ferdig med å lage et system, så lempet man det over på "Ops"-folkene, altså "operations"-og tok ferie eller gikk over på et annet prosjekt. Problemet her er at det er utrolig lite effektivt. Hvordan kan noen hos "Ops" vite hvorfor visse valg i koden er tatt, når de ikke har skrevet det selv? Hvis noe går galt, så må de ta kontakt med utviklerne, som ikke alltid er tilgjengelige. Det er her flaskehalsen kommer inn i bildet. Så ved å bruke DevOps-metoden, har man som utvikler også ansvar for vedlikehold av koden. Man er både "dev" og "ops" - derav DevOps. I tillegg kan DevOps sammen med skyteknologi gjøre prosessen fra ide til ferdig feature ute på nettet betraktelig mye raskere. Bedrifter har erfart å gå fra omtrent 1-2 prod-pusher hver 3. eller 6. måned, til flere hundre om dagen. 
+
+
 &nbsp;
 Hei
 
