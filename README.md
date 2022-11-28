@@ -15,7 +15,14 @@ Et annet eksempel på et DevOps-prinsipp som ofte blir brutt er: SKRIV MER HER!!
 ### Spørsmål:
 * En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
 ### Svar:
-En bedre tilnærming kan - og burde i mine øyne - være at da må man i hvert fall release ny funksjonalitet, om ikke oftere. Man bør ikke være redd for at det kan gå galt, men heller se på det som en mulighet for å ta lærdom om hvorfor det gikk galt. Det er bedre å oppdage feilen tidligere og hyppigere, enn større og mer komplekse feil "down the line"
+En bedre tilnærming kan - og burde i mine øyne - være at da må man i hvert fall release ny funksjonalitet, om ikke oftere. Man bør ikke være redd for at det kan gå galt, men heller se på det som en mulighet for å ta lærdom om hvorfor det gikk galt. Det er bedre å oppdage feilen tidligere og hyppigere, enn større og mer komplekse feil "down the line".
+
+### Spørsmål:
+* Teamet overleverer kode til en annen avdelng som har ansvar for drift - hva er utfordringen med dette ut ifra et DevOps perspektiv, og hvilke gevinster kan man få ved at team han ansvar for både drift- og utvikling?
+### Svar:
+Jeg touchet innom noe av dette i besvarelsen over, men utfordringen er at man som ansvarlig for drift faktisk ikke har skrevet koden, og dermed ofte ikke vet hvorfor visse valg er gjort. Hvis en feil oppstår, og man på drift ikke har skrevet koden, må man kanskje bruke tid på å spørre utvikleren, som kanskje er på ferie eller opptatt med et annet prosjekt. Her stopper det opp, og man bruker mye tid på å gå frem og tilbake. En annen utfordring er mer på et menneskelig nivå, nemlig ansvar. Hvis man ikke har skrevet noen kode, men har fått som jobb å være ansvarlig for den, så sitter man ikke med den samme ansvarsfølelsen. Man har ikke "skin in the game", altså det er ingen stor risiko fordi "noen andre skrev jo koden, det er ikke min feil at ting ikke funker".
+
+Hvis man på den andre siden faktisk hadde ansvar for BÅDE å skrive koden, samt drift av koden, da har man absolutt "skin in the game". Det er deg som utvikler det står på, fordi du har faktisk skrevet koden. Og det er du som er ansvarlig for vedlikehold. Som er resultat av dette, er man mer investert og lager kode med mindre sjanse for feil, samt at man kan være rask til å rette opp i koden hvis noe skulle skje. Man følger et produkt igjennom hele stadiet fra ide til produkt, og er med videre når produktet er ute i verden og passer på at ting fungerer som det skal. 
 
 
 SLETT ALT UNDER ETTERPÅ!!
