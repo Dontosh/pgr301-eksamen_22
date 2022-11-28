@@ -35,7 +35,7 @@ For å redusere eller fjerne risiko ved hyppige leveranser, kan man implementere
 ### Oppgave 3
 Fremgangsmåte for å konfigurere branch protection:
 * Gå inn på "settings" i forken, og naviger til siden "branches" som ligger under "Code and automation" til venstre. Deretter, klikk på "Add branch protection rule". 
-* For å gjøre slik at man ikke kan pushe direkte til main, kan man gjøre flere ting. En måte å låse main på - men som dog er ganske ekstremt - er å låse branchen ved å huke av "lock branch". Da kan kan sette opp egne regler for adminbrukere, slik at noen har lov til å "bypass branch protection rules". 
+* For å gjøre slik at man ikke kan pushe direkte til main, kan man gjøre flere ting. En måte - men som dog er ganske ekstremt - er å låse branchen ved å huke av "lock branch". Da kan kan sette opp egne regler for adminbrukere, slik at noen har lov til å "bypass branch protection rules". 
 * For å gjøre slik at man er nødt til å lage en pull request for å merge til main, huk av for "Require a pull request before merging". By default vil det kreves minst en person til code-review, men her kan man velge selv hvor mange. 
 * For at koden kun man merges med main fra feature branch når GitHub Actions har verifisert requesten, huk av for "Require status checks to pass before merging". Her kan man sette opp at alle testene må være grønne og GH Actions bygget må ikke feile, før man kan merge med main. 
 
