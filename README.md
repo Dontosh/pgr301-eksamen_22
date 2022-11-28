@@ -1,4 +1,4 @@
-# PG301_eksamen test2
+# PG301_eksamen
 
 ## Del 1 - DevOps prinsipper
 ### Spørsmål:
@@ -30,6 +30,12 @@ Hvis man på den andre siden faktisk hadde ansvar for BÅDE å skrive koden, sam
 Det at man releaser kode ofte gjør at kunden får en rask og god brukeropplevelse, men det kan - og vil - også føre til at man gjør feil. Og feilen vil dukke opp oftere, og kunden vil bli direkte påvirket av dette. SKRIV OM ANDRE UTFORDRINGER HER!!! 
 
 For å redusere eller fjerne risiko ved hyppige leveranser, kan man implementere flere "safeguards". Et eksempel kan være å innføre branch-protection, slik at man ikke får merget feature-branchen sin med Main, før man har opprettet en pull request. Da kan man også sette opp at man ikke får godkjent pull requesten uten en code-review, altså at noen andre ser over koden og godkjenner eller ber deg gjøre det på nytt eller gjøre om. Man kan også sette opp i build-pipelinen, ved å for eksempel bruke GitHub Actions, at alle tester skal kjøre grønt før man får en vellykket build. Ingenting får lov til å gå til produksjon før det er reviewet, og alle tester kjører grønt. 
+
+## Del 2 - CI
+### Oppgave 3
+* Ingen kan pushe kode direkte på main branch
+* Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
+* Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
 
 
 SLETT ALT UNDER ETTERPÅ!!
