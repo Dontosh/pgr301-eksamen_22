@@ -39,6 +39,10 @@ Fremgangsmåte for å konfigurere branch protection:
 * For å gjøre slik at man er nødt til å lage en pull request for å merge til main, huk av for "Require a pull request before merging". Som standard vil det kreves minst en person til code-review, men her kan man velge selv hvor mange. 
 * For at koden kun man merges med main fra feature branch når GitHub Actions har verifisert requesten, huk av for "Require status checks to pass before merging". Her kan man sette opp at alle testene må være grønne og GH Actions bygget må ikke feile, før man kan merge med main. 
 
+## Del 3 - Docker
+### Oppgave 1
+Jeg måtte legge inn GitHub secrets, som docker.yml-filen baserte seg på. Nemlig token og brukernavn fra Dockerhub-kontoen min. Etter at jeg la inn det, ble bygget vellykket. Grunnen til at workflowen feilet, var nemlig det; det fantes ingen secrets lagt inn og det var da umulig å logge inn i Dockerhub.  
+
 
 SLETT ALT UNDER ETTERPÅ!!
 
