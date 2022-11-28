@@ -1,3 +1,16 @@
+# PG301_eksamen
+
+## Del 1 - DevOps prinsipper
+* Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
+- Test
+
+
+
+
+
+
+SLETT ALT UNDER ETTERPÅ!!
+
 # DevOps med gode intensjoner
 
 ## Krav til leveransen
