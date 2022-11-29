@@ -50,6 +50,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
         meterRegistry.counter("update_cart").increment();
+        System.out.println(cartService.getAllCarts().size());
         return cartService.update(cart);
     }
 
@@ -60,7 +61,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
-        System.out.println("CartService.getAllCarts().length:");
+        System.out.println("CartService.getAllCarts().size:");
         System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
     }
