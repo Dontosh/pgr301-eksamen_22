@@ -5,24 +5,20 @@ import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController()
 public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
 
     private final CartService cartService;
-    private MeterRegistry meterRegistry;
-    private final NaiveCartImpl naiveCartImpl;
+    private final MeterRegistry meterRegistry;
 
     @Autowired
-    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCartImpl) {
+    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry) {
         this.cartService = cartService;
         this.meterRegistry = meterRegistry;
-        this.naiveCartImpl = naiveCartImpl;
     }
 
 
@@ -36,6 +32,11 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      *
      * @return an order ID
      */
+    // /status for testing purposes
+    @GetMapping(path = "/status")
+    public ResponseEntity<String> status() {
+        return ResponseEntity.ok("Server is up and running");
+    }
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
         return cartService.checkout(cart);

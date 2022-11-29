@@ -1,4 +1,4 @@
-package no.shopifly;
+package no.shoppifly;
 
 import io.micrometer.core.aop.TimedAspect;
 import io.micrometer.core.instrument.MeterRegistry;

@@ -1,4 +1,4 @@
-package no.shopifly;
+package no.shoppifly;
 
 import io.micrometer.cloudwatch2.CloudWatchConfig;
 import io.micrometer.cloudwatch2.CloudWatchMeterRegistry;
@@ -35,7 +35,7 @@ public class MetricsConfig {
     private CloudWatchConfig setupCloudWatchConfig() {
         return new CloudWatchConfig() {
             private Map<String, String> configuration = Map.of(
-                    "cloudwatch.namespace", "1049",
+                    "cloudwatch.namespace", "testasd",
                     "cloudwatch.step", Duration.ofSeconds(5).toString());
 
             @Override

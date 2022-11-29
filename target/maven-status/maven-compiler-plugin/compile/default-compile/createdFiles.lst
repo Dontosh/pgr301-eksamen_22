@@ -1,10 +1,10 @@
-no/shopifly/TimedConfig.class
-no/shopifly/MetricsConfig.class
+no/shoppifly/TimedConfig.class
+no/shoppifly/MetricsConfig.class
 no/shoppifly/NaiveCartImpl.class
 no/shoppifly/CartService.class
 no/shoppifly/Cart$CartBuilder.class
 no/shoppifly/Cart.class
 no/shoppifly/Item.class
 no/shoppifly/CddemoApplication.class
-no/shopifly/MetricsConfig$1.class
+no/shoppifly/MetricsConfig$1.class
 no/shoppifly/ShoppingCartController.class
