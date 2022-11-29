@@ -42,6 +42,8 @@ Fremgangsmåte for å konfigurere branch protection:
 ## Del 3 - Docker
 ### Oppgave 1
 Jeg måtte legge inn GitHub secrets, som docker.yml-filen baserte seg på. Nemlig token og brukernavn fra Dockerhub-kontoen min. Etter at jeg la inn det, ble bygget vellykket. Grunnen til at workflowen feilet, var nemlig det; det fantes ingen secrets lagt inn og det var da umulig å logge inn i Dockerhub.  
+### Oppgave 3
+Jeg oppdaterte jdk i Dockerfile til 11, slik at den matcher det pom.xml er bygget med. Og alt fungerer lokalt. Men når jeg pusher imaget til Dockerhub, så får jeg sammme feilmld om version mismatch når jeg forsøker å kjøre Dockerhub-imaget fra Cloud9. Jeg har sjekket selve imaget i Dockerhub, og der står det tydelig at det kjører på openjdk:11. Jeg klarer fint å kjøre den samme tagen
 
 
 SLETT ALT UNDER ETTERPÅ!!
