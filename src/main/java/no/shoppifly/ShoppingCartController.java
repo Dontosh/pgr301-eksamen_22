@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 @RestController()
-public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
+public class ShoppingCartController {
 
     private final CartService cartService;
-    private MeterRegistry meterRegistry;
+   // private MeterRegistry meterRegistry;
     private final NaiveCartImpl naiveCartImpl;
 
     @Autowired
-    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCartImpl) {
+    public ShoppingCartController(CartService cartService, NaiveCartImpl naiveCartImpl) {
         this.cartService = cartService;
-        this.meterRegistry = meterRegistry;
+       // this.meterRegistry = meterRegistry;
         this.naiveCartImpl = naiveCartImpl;
     }
 
@@ -49,7 +49,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
-        meterRegistry.counter("update_cart").increment();
+       // meterRegistry.counter("update_cart").increment();
         return cartService.update(cart);
     }
 
@@ -65,13 +65,9 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         return cartService.getAllCarts();
     }
     
-    @Override
-    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        System.out.println("onApplicationEvent ran");
-        int cartsCount = cartService.getAllCarts().size();
-        System.out.println(cartsCount);
-        
-        Gauge.builder("carts_count", naiveCartImpl.shoppingCarts, 
-        c -> c.values().size()).register(meterRegistry);
-    }
+    // @Override
+    // public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+    //     Gauge.builder("carts_count", naiveCartImpl.shoppingCarts, 
+    //     c -> c.values().size()).register(meterRegistry);
+    // }
 }
