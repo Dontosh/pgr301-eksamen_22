@@ -60,13 +60,14 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
+        System.out.println("CartService.getAllCarts().length:");
+        System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
     }
     
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Gauge
-            .builder("carts_count", cartService.getAllCarts(), List::size)
-            .register(meterRegistry);
+            .builder("carts_count", cartService.getAllCarts(), c -> c.size()).register(meterRegistry);
     }
 }
