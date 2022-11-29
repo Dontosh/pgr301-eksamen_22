@@ -12,13 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 @RestController()
-public class ShoppingCartController {
+public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
 
     private final CartService cartService;
+    private MeterRegistry meterRegistry;
+    private final NaiveCartImpl naiveCartImpl;
 
     @Autowired
-    public ShoppingCartController(CartService cartService) {
+    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCartImpl) {
         this.cartService = cartService;
+        this.meterRegistry = meterRegistry;
+        this.naiveCartImpl = naiveCartImpl;
     }
 
 
@@ -55,6 +59,13 @@ public class ShoppingCartController {
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
-        return cartService.getAllsCarts();
+        return cartService.getAllCarts();
+    }
+    
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        Gauge
+            .builder("carts_count", cartService.getAllCarts(), List::size)
+            .register(meterRegistry);
     }
 }
