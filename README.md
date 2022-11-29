@@ -43,7 +43,7 @@ Fremgangsmåte for å konfigurere branch protection:
 ### Oppgave 1
 Jeg måtte legge inn GitHub secrets, som docker.yml-filen baserte seg på. Nemlig token og brukernavn fra Dockerhub-kontoen min. Etter at jeg la inn det, ble bygget vellykket. Grunnen til at workflowen feilet, var nemlig det; det fantes ingen secrets lagt inn og det var da umulig å logge inn i Dockerhub.  
 ### Oppgave 2
-Jeg oppdaterte jdk i Dockerfile til 11, slik at den matcher det pom.xml er bygget med. Og alt fungerer lokalt. Men når jeg pusher imaget til Dockerhub, så får jeg sammme feilmld om version mismatch når jeg forsøker å kjøre Dockerhub-imaget fra Cloud9. Jeg har sjekket selve imaget i Dockerhub, og der står det tydelig at det kjører på openjdk:11. Jeg forsøkte da å lage en ny tag - som jeg kalte shopiflai - og prøvde å kjøre denne i stedet. Og da fungerte det; jeg kunne kjøre docker run dockerhub_username/shopiflai uten problemer. Det virker som om JDK på imaget shopifly ikke ble oppdatert. 
+Jeg oppdaterte jdk i Dockerfile til 11, slik at den matcher det pom.xml er bygget med. Og alt fungerer lokalt. Men når jeg pusher imaget til Dockerhub, så får jeg samme feilmld om version mismatch når jeg forsøker å kjøre Dockerhub-imaget fra Cloud9. Jeg har sjekket selve imaget i Dockerhub, og der står det tydelig at det kjører på openjdk:11. Jeg forsøkte da å lage en ny tag - som jeg kalte shopiflai - og prøvde å kjøre denne i stedet. Og da fungerte det; jeg kunne kjøre docker run dockerhub_username/shopiflai uten problemer. Det virker som om JDK på imaget shopifly ikke ble oppdatert. 
 ### Oppgave 3
 For at sensor skal få sin fork til å laste opp container image til sitt eget ECR repo, må hen gjøre følgende:
 * Gå til IAM (Identity and Access Management) på aws.amazon.com
