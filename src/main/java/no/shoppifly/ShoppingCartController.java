@@ -1,22 +1,34 @@
 package no.shoppifly;
 
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController()
-public class ShoppingCartController {
+public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
+
+    private final CartService cartService;
+    private final MeterRegistry meterRegistry;
+    private Map<String, Cart> cartsMap = new HashMap<>();
 
     @Autowired
-    private final CartService cartService;
-
-    public ShoppingCartController(CartService cartService) {
+    public ShoppingCartController(MeterRegistry meterRegistry, CartService cartService) {
+        this.meterRegistry = meterRegistry;
         this.cartService = cartService;
     }
 
+
     @GetMapping(path = "/cart/{id}")
     public Cart getCart(@PathVariable String id) {
+
+
         return cartService.getCart(id);
     }
 
@@ -38,6 +50,7 @@ public class ShoppingCartController {
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
+        cartsMap.put(cart.getId(), cart);
         return cartService.update(cart);
     }
 
@@ -51,5 +64,8 @@ public class ShoppingCartController {
         return cartService.getAllsCarts();
     }
 
-
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        Gauge.builder("carts_count", cartsMap, c -> c.values().size()).register(meterRegistry);
+    }
 }
