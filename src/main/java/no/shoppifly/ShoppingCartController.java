@@ -49,6 +49,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
+        meterRegistry.counter("update_cart").increment();
         return cartService.update(cart);
     }
 
