@@ -42,8 +42,20 @@ Fremgangsmåte for å konfigurere branch protection:
 ## Del 3 - Docker
 ### Oppgave 1
 Jeg måtte legge inn GitHub secrets, som docker.yml-filen baserte seg på. Nemlig token og brukernavn fra Dockerhub-kontoen min. Etter at jeg la inn det, ble bygget vellykket. Grunnen til at workflowen feilet, var nemlig det; det fantes ingen secrets lagt inn og det var da umulig å logge inn i Dockerhub.  
-### Oppgave 3
+### Oppgave 2
 Jeg oppdaterte jdk i Dockerfile til 11, slik at den matcher det pom.xml er bygget med. Og alt fungerer lokalt. Men når jeg pusher imaget til Dockerhub, så får jeg sammme feilmld om version mismatch når jeg forsøker å kjøre Dockerhub-imaget fra Cloud9. Jeg har sjekket selve imaget i Dockerhub, og der står det tydelig at det kjører på openjdk:11. Jeg forsøkte da å lage en ny tag - som jeg kalte shopiflai - og prøvde å kjøre denne i stedet. Og da fungerte det; jeg kunne kjøre docker run dockerhub_username/shopiflai uten problemer. Det virker som om JDK på imaget shopifly ikke ble oppdatert. 
+### Oppgave 3
+For at sensor skal få sin fork til å laste opp container image til sitt eget ECR repo, må hen gjøre følgende:
+* Gå til IAM (Identity and Access Management) på aws.amazon.com
+* Naviger til Users, under Access management
+* Opprett bruker om ikke gjort fra før av
+* Søk og klikk på brukeren din, og gå til fanen Security credentials
+* Klikk så på Create access key om du ikke har en fra før av, og legg både ID og Secret inn i GitHub Secrets, med samme navn på variabelen som blir referert til i docker.yml-filen. 
+* På linje 23 i docker.yml kan du endre navn på tag om du vil
+* Hvis du endret tag, sørg for å oppdatere tag-navn på linje 24 til den nyopprettede
+* Også på linje 24, endre der hvor det står 1049 til ditt ECR brukernavn
+* Linje 25, endre der hvor det står 1049 til ditt ECR brukernavn. 
+
 
 
 SLETT ALT UNDER ETTERPÅ!!
