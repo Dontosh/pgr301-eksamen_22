@@ -6,8 +6,8 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "analytics-${var.candidate_id}"
-    key    = "no.shoppifly/CddemoApplication-state.state"
-    region = "eu-north-1"
+    bucket = "analytics-1049"
+    key    = "no.shoppifly/terraform.state"
+    region = "eu-west-1"
   }
 }
