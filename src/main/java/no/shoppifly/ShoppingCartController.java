@@ -15,11 +15,13 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
 
     private final CartService cartService;
     private final MeterRegistry meterRegistry;
+    private final NaiveCartImpl naiveCart;
 
     @Autowired
-    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry) {
+    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCart) {
         this.cartService = cartService;
         this.meterRegistry = meterRegistry;
+        this.naiveCart = naiveCart;
     }
 
 
@@ -73,5 +75,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Gauge.builder("carts_count", cartService.getAllCarts(),
                 List::size).register(meterRegistry);
+        Gauge.builder("carts_value", naiveCart.total(), Float::new).register(meterRegistry);
     }
 }
