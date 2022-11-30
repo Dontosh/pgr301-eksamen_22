@@ -24,3 +24,5 @@ hs_err_pid*
 /.idea/
 /infra/.terraform
 /target/
+target/
+target

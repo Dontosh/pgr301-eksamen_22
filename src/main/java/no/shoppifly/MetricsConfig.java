@@ -32,7 +32,6 @@ public class MetricsConfig {
                         cloudWatchAsyncClient());
     }
 
-    // lets go
     private CloudWatchConfig setupCloudWatchConfig() {
         return new CloudWatchConfig() {
             private final Map<String, String> configuration = Map.of(
