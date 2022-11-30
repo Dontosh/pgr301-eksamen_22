@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "pgr301-exam-1049-terraform-state"
+    bucket = "analytics-${var.candidate_id}"
     key    = "no.shoppifly/CddemoApplication-state.state"
     region = "eu-north-1"
   }
