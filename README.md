@@ -56,6 +56,10 @@ For at sensor skal få sin fork til å laste opp container image til sitt eget E
 * Også på linje 24, endre der hvor det står 1049 til ditt ECR brukernavn
 * Linje 25, endre der hvor det står 1049 til ditt ECR brukernavn. 
 
+## Del 5 - Terraform og CloudWatch Dashboards
+### Oppgave 1
+* Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer?
+* Årsaken er at det ikke er spesifisert noen bucket i provider.tf, så Terraform forsøker da å opprette en ny hver gang. Det vi kan gjøre er å importere vår allerede lagde bucket inn i Provider.tf, slik at Terraform bruker den S3-bucketen hver gang workflowen kjører
 
 
 SLETT ALT UNDER ETTERPÅ!!
