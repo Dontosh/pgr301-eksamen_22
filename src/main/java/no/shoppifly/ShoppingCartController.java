@@ -7,6 +7,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController()
@@ -37,6 +38,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     public ResponseEntity<String> status() {
         return ResponseEntity.ok("Server is up and running");
     }
+
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
         return cartService.checkout(cart);
@@ -66,11 +68,11 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
     }
-    
+
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         List<String> cartsList = cartService.getAllCarts();
         Gauge
-            .builder("carts_count", cartsList, List::size).register(meterRegistry);
+                .builder("carts_count", cartsList, List::size).register(meterRegistry);
     }
 }
