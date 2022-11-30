@@ -71,6 +71,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         return cartService.getAllCarts();
     }
 
+
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Gauge.builder("carts_count", cartService.getAllCarts(),
