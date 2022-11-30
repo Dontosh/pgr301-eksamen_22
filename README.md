@@ -59,8 +59,7 @@ For at sensor skal få sin fork til å laste opp container image til sitt eget E
 ## Del 5 - Terraform og CloudWatch Dashboards
 ### Oppgave 1
 * Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer?
-* Årsaken er at det ikke er spesifisert noen bucket i provider.tf, så Terraform forsøker da å opprette en ny hver gang. Det vi kan gjøre er å importere vår allerede lagde bucket inn i Provider.tf, slik at Terraform bruker den S3-bucketen hver gang workflowen kjører
-
+* Årsaken er at det ikke er spesifisert noen bucket i provider.tf, så Terraform forsøker da å opprette en ny hver gang. Vi må legge på en backend-blokk i provider.tf, for å fortelle Terraform at vi vil lagre state-informasjonen i en egen bucket. På denne måten vet Terraform at det allerede er opprettet en S3 bucket, og vil da bruke denne i stedet for å forsøke å opprette en ny bucket med samme navn.
 
 SLETT ALT UNDER ETTERPÅ!!
 
