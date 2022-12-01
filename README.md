@@ -1,3 +1,5 @@
+[![CI pipeline](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml)
+
 # PG301_eksamen
 
 ## Del 1 - DevOps prinsipper
