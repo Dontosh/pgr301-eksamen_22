@@ -33,7 +33,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "carts.value"
+            "checkouts.value"
           ]
         ],
         "period": 5,
@@ -73,7 +73,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "checkouts.value"
+            "cartsvalue.value"
           ]
         ],
         "period": 5,
