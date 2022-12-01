@@ -16,7 +16,7 @@ resource "aws_cloudwatch_dashboard" "main" {
             "carts.value"
           ]
         ],
-        "period": 30,
+        "period": 5,
         "unit": "Carts",
         "stat": "Maximum",
         "region": "eu-west-1",
@@ -36,7 +36,7 @@ resource "aws_cloudwatch_dashboard" "main" {
             "cartsvalue.value"
           ]
         ],
-        "period": 30,
+        "period": 5,
         "unit": "NOK",
         "stat": "Maximum",
         "region": "eu-west-1",
