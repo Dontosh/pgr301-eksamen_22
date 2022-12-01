@@ -85,6 +85,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         Gauge.builder("carts", cartService,
                 cartService -> cartService.getAllCarts().size()).register(meterRegistry);
         Gauge.builder("cartsvalue", naiveCart, NaiveCartImpl::total).register(meterRegistry);
-        Gauge.builder("checkouts", numberOfCheckouts, Integer::doubleValue).register(meterRegistry);
+        Gauge.builder("checkouts", numberOfCheckouts, Integer::valueOf).register(meterRegistry);
     }
 }
