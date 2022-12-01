@@ -45,8 +45,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @Timed
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
-        //meterRegistry.counter("checkout").increment();
-        //meterRegistry.timer("checkout").count();
+        meterRegistry.counter("checkout").increment();
+        meterRegistry.timer("checkout").count();
         return cartService.checkout(cart);
     }
 
@@ -58,7 +58,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
-        //meterRegistry.counter("update_cart").increment();
+        meterRegistry.counter("update_cart").increment();
         System.out.println(cartService.getAllCarts().size());
         return cartService.update(cart);
     }
@@ -70,7 +70,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
-        //meterRegistry.counter("carts_counter").increment();
+        meterRegistry.counter("get_all_carts").increment();
         System.out.println("CartService.getAllCarts().size:");
         System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
