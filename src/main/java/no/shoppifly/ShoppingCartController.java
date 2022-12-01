@@ -18,7 +18,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     private final MeterRegistry meterRegistry;
     private final NaiveCartImpl naiveCart;
 
-    public int numberOfCheckouts;
+    public int numberOfCheckouts = 1;
 
     @Autowired
     public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCart) {
