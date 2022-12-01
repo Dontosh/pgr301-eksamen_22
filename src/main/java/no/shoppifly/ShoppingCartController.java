@@ -70,7 +70,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
-        meterRegistry.counter("carts").increment();
+        meterRegistry.counter("carts_counter").increment();
         System.out.println("CartService.getAllCarts().size:");
         System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
@@ -79,7 +79,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Gauge.builder("carts_count", cartService.getAllCarts(),
+        Gauge.builder("carts", cartService.getAllCarts(),
                 List::size).register(meterRegistry);
         Gauge.builder("cartsvalue", naiveCart.total(), Float::valueOf).register(meterRegistry);
     }
