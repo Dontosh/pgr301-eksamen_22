@@ -1,5 +1,6 @@
 package no.shoppifly;
 
+import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,11 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         return ResponseEntity.ok("Server is up and running");
     }
 
+    @Timed
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
+        meterRegistry.counter("checkout").increment();
+        meterRegistry.timer("checkout").count();
         return cartService.checkout(cart);
     }
 
@@ -66,6 +70,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      */
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
+        meterRegistry.counter("carts").increment();
         System.out.println("CartService.getAllCarts().size:");
         System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
@@ -74,8 +79,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        Gauge.builder("carts_count", cartService.getAllCarts(),
+        Gauge.builder("carts", cartService.getAllCarts(),
                 List::size).register(meterRegistry);
-        Gauge.builder("carts_value", naiveCart.total(), Float::valueOf).register(meterRegistry);
+        Gauge.builder("cartsvalue", naiveCart.total(), Float::valueOf).register(meterRegistry);
     }
 }
