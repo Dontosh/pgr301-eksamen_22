@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "1049-state-bucket"
+    bucket = "analytics-1049"
     key    = "no.shoppifly/terraform.state"
     region = "eu-west-1"
   }
