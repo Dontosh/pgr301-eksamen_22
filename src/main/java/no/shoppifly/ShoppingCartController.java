@@ -18,6 +18,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     private final MeterRegistry meterRegistry;
     private final NaiveCartImpl naiveCart;
 
+    public int numberOfCheckouts;
+
     @Autowired
     public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry, NaiveCartImpl naiveCart) {
         this.cartService = cartService;
@@ -45,8 +47,9 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @Timed
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
-        meterRegistry.counter("checkouts").increment();
+        //meterRegistry.counter("checkouts").increment();
         meterRegistry.timer("checkouts_latency").count();
+        numberOfCheckouts++;
         return cartService.checkout(cart);
     }
 
@@ -82,5 +85,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         Gauge.builder("carts", cartService,
                 cartService -> cartService.getAllCarts().size()).register(meterRegistry);
         Gauge.builder("cartsvalue", naiveCart, NaiveCartImpl::total).register(meterRegistry);
+        Gauge.builder("checkouts", numberOfCheckouts, Integer::doubleValue).register(meterRegistry);
     }
 }
