@@ -1,3 +1,7 @@
+[![CI pipeline](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml)
+[![Terraform CloudWatch](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/cloudwatch_dashboard.yml)
+[![Docker build](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/docker.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/docker.yml)
+
 # PG301_eksamen
 
 ## Del 1 - DevOps prinsipper
