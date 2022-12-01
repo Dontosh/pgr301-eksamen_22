@@ -1,4 +1,5 @@
 [![CI pipeline](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/ci.yml)
+[![Terraform CloudWatch](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/Dontosh/pgr301-eksamen_22/actions/workflows/cloudwatch_dashboard.yml)
 
 # PG301_eksamen
 
