@@ -50,6 +50,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         //meterRegistry.counter("checkouts").increment();
         meterRegistry.timer("checkouts_latency").count();
         numberOfCheckouts++;
+        System.out.println("Number of checkouts: ");
+        System.out.println(numberOfCheckouts);
         return cartService.checkout(cart);
     }
 
