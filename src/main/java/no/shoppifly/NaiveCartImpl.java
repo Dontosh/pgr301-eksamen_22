@@ -9,6 +9,8 @@ class NaiveCartImpl implements CartService {
 
     public Map<String, Cart> shoppingCarts = new HashMap<>();
 
+    public int numberOfCartsCheckedOut = 0;
+
     @Override
     public Cart getCart(String id) {
         return shoppingCarts.get(id);
@@ -26,6 +28,7 @@ class NaiveCartImpl implements CartService {
     @Override
     public String checkout(Cart cart) {
         shoppingCarts.remove(cart.getId());
+        numberOfCartsCheckedOut++;
         return UUID.randomUUID().toString();
     }
 
@@ -40,5 +43,9 @@ class NaiveCartImpl implements CartService {
                 .flatMap(c -> c.getItems().stream()
                         .map(i -> i.getUnitPrice() * i.getQty()))
                 .reduce(0f, Float::sum);
+    }
+
+    public int numberOfCartsCheckedOutFunc() {
+        return numberOfCartsCheckedOut;
     }
 }
