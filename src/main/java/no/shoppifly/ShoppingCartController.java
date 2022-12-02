@@ -44,11 +44,11 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         return ResponseEntity.ok("Server is up and running");
     }
 
-    @Timed(value = "checkouts_latency_this.value")
+    @Timed(value = "what_is_this")
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
         //meterRegistry.counter("checkouts").increment();
-        meterRegistry.timer("checkouts_latency_this").count();
+        //meterRegistry.timer("checkouts_latency_this").count();
         System.out.println("Number of checkouts: ");
         System.out.println(numberOfCheckouts);
         return cartService.checkout(cart);
