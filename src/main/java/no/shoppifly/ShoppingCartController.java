@@ -44,12 +44,11 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
         return ResponseEntity.ok("Server is up and running");
     }
 
-    @Timed
+    @Timed(value = "checkouts_latency")
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
         //meterRegistry.counter("checkouts").increment();
-        meterRegistry.timer("checkouts_latency").count();
-        numberOfCheckouts++;
+       // meterRegistry.timer("checkouts_latency").count();
         System.out.println("Number of checkouts: ");
         System.out.println(numberOfCheckouts);
         return cartService.checkout(cart);
@@ -64,7 +63,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
         meterRegistry.counter("update_cart").increment();
-        System.out.println(cartService.getAllCarts().size());
         return cartService.update(cart);
     }
 
@@ -76,12 +74,9 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @GetMapping(path = "/carts")
     public List<String> getAllCarts() {
         meterRegistry.counter("get_all_carts").increment();
-        System.out.println("CartService.getAllCarts().size:");
-        System.out.println(cartService.getAllCarts().size());
         return cartService.getAllCarts();
     }
 
-// no data??????
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         Gauge.builder("carts", cartService,

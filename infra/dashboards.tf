@@ -53,12 +53,12 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "checkouts_latency"
+            "checkouts_latency.value"
           ]
         ],
         "period": 5,
         "units": "time",
-        "stat": "Maximum",
+        "stat": "Average",
         "region": "eu-west-1",
         "title": "Checkouts latency"
       }
