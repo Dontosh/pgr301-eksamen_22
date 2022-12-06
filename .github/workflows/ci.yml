@@ -3,6 +3,10 @@
 # or something?
 name: CI pipeline
 on:
+  pull_requests:
+    branches: [ main ]
+    paths-ignore:
+      - '**/README.md'
   push:
     branches: [ main ]
     paths-ignore:
