@@ -14,7 +14,7 @@ Et annet eksempel er at tradisjonelt sett jobbet noen i "Dev"-delen, altså som 
 
 Et eksempel på et DevOps-prinsipp som ofte blir brutt, er CD (Continuous Deployment). Noen bedrifter jobber gjerne i et såkalt "trunk based development" miljø, hvor man oppretter "feature branches" som alltid "merges" rett inn i Main og ut i produksjon. Problemet her er at folk ofte jobber lenge i en "feature branch", og når de omsider bestemmer seg for å opprette en "pull request" og "merge" denne med Main, så ligger den ørtenhundre "commits" bak Main. Da har man brutt hele prinsippiet med å kontinuerlig "merge" inn i Main og ut i produksjon, og må heller bruke mye unødvendig tid på "merge conflicts". 
 
-Et annet eksempel på et DevOps-prinsipp som ofte blir brutt er: SKRIV MER HER!!!!!!!!!!!!!!!!
+Et annet eksempel på et DevOps-prinsipp som ofte blir brutt er ende-til-ende eierskap. Noen lager gjerne en feature, deployer denne og tenker ikke mer på det. I DevOps har man selv ansvar for egen kode, og må følge den opp etter at man har deployet.
 
 ### Spørsmål:
 * En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
