@@ -3,7 +3,7 @@
 # or something?
 name: CI pipeline
 on:
-  pull_requests:
+  pull_request:
     branches: [ main ]
     paths-ignore:
       - '**/README.md'
