@@ -51,10 +51,14 @@ resource "aws_cloudwatch_dashboard" "main" {
       "height": 6,
       "properties": {
         "metrics": [
-          [
-            "${var.candidate_id}",
-            "checkouts_latency.value"
-          ]
+          [ "${var.candidate_id}",
+            "checkouts_latency.avg",
+            "exception",
+            "none",
+            "method",
+            "checkout",
+            "class",
+            "no.shoppifly.ShoppingCartController" ]
         ],
         "period": 5,
         "units": "time",
