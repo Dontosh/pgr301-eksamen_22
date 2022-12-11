@@ -36,7 +36,7 @@ resource "aws_cloudwatch_dashboard" "main" {
             "checkouts.value"
           ]
         ],
-        "period": 5,
+        "period": 3600,
         "units": "checkouts",
         "stat": "Maximum",
         "region": "eu-west-1",
@@ -60,7 +60,7 @@ resource "aws_cloudwatch_dashboard" "main" {
             "class",
             "no.shoppifly.ShoppingCartController" ]
         ],
-        "period": 5,
+        "period": 3600,
         "units": "time",
         "stat": "Average",
         "region": "eu-west-1",
